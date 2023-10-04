@@ -19,7 +19,7 @@ export default function Navigation() {
         }}
       />
       <Tap.Screen
-        name="Pokedex"
+        name="Productos"
         component={Pokedex}
         options={{
           tabBarLabel: "Pokedex",
