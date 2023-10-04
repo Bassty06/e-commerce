@@ -25,19 +25,11 @@ export default function Pokedex() {
 
   return (
     <View>
-      <Text
-        style={{ padding: 16, fontSize: 28, fontWeight: "bold", color: "blue" }}
-      >
-        Products
-      </Text>
       <FlatList
         data={productos}
         renderItem={Producto}
         keyExtractor={(item) => String(item.id)}
         style={{ padding: 16 }}
-        ItemSeparatorComponent={() => (
-          <View style={{ height: 1, backgroundColor: "gray" }} />
-        )}
       />
     </View>
   );
