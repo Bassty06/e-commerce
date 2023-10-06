@@ -1,30 +1,11 @@
 import React from "react";
 import { Text, Card, Button, AirbnbRating } from "@rneui/themed";
-import { View, ScrollView, StyleSheet } from "react-native";
+import { View, ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  fonts: {
-    marginBottom: 8,
-  },
-  user: {
-    flexDirection: "row",
-    marginBottom: 6,
-  },
-  image: {
-    width: 30,
-    height: 30,
-    marginRight: 10,
-  },
-  name: {
-    fontSize: 16,
-    marginTop: 5,
-  },
-});
+export const Producto = ({ item }) => {
+  const navigation = useNavigation();
 
-export default function Producto({ item }) {
   return (
     <ScrollView>
       <View>
@@ -47,20 +28,21 @@ export default function Producto({ item }) {
             {item.category} {item.brand}
           </Text>
           <Text style={{ marginBottom: 10 }}>
-            <AirbnbRating defaultRating={parseInt(item.rating)} size={20} />{" "}
+            <AirbnbRating defaultRating={parseInt(item.rating)} size={15} />
             {item.rating}
           </Text>
           <Button
             buttonStyle={{
-              borderRadius: 0,
+              borderRadius: 5,
               marginLeft: 0,
               marginRight: 0,
               marginBottom: 0,
             }}
             title="VIEW NOW"
+            onPress={() => navigation.navigate("ViewProduct")}
           />
         </Card>
       </View>
     </ScrollView>
   );
-}
+};
