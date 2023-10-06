@@ -1,8 +1,7 @@
-import { View, Text } from "react-native";
+import { View, ScrollView } from "react-native";
 import React from "react";
-import Producto from "../components/Producto";
+import { Producto } from "../components/Producto";
 import { useState, useEffect } from "react";
-import { FlatList } from "react-native-gesture-handler";
 
 export default function Pokedex() {
   const [productos, setProductos] = useState([]);
@@ -24,13 +23,12 @@ export default function Pokedex() {
   }, []);
 
   return (
-    <View>
-      <FlatList
-        data={productos}
-        renderItem={Producto}
-        keyExtractor={(item) => String(item.id)}
-        style={{ padding: 16 }}
-      />
-    </View>
+    <ScrollView>
+      <View>
+        {productos.map((item) => (
+          <Producto key={String(item.id)} item={item} />
+        ))}
+      </View>
+    </ScrollView>
   );
 }
