@@ -39,7 +39,11 @@ export const Producto = ({ item }) => {
               marginBottom: 0,
             }}
             title="VIEW NOW"
-            onPress={() => navigation.navigate("ViewProduct")}
+            onPress={() =>
+              navigation.navigate("ViewProduct", {
+                data: item,
+              })
+            }
           />
         </Card>
       </View>
